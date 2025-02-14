@@ -8,6 +8,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getFirestore, collection, addDoc, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+        // Configuración de Firebase
         const firebaseConfig = {
             apiKey: "TU_API_KEY",
             authDomain: "TU_AUTH_DOMAIN",
@@ -20,15 +21,17 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // Generar ID único para usuario
         function generarIDUnico() {
             let id = localStorage.getItem("user_id");
             if (!id) {
-                id = "user_" + Math.random().toString(36).substr(2, 9);
+                id = crypto.randomUUID(); // Genera un UUID seguro
                 localStorage.setItem("user_id", id);
             }
             return id;
         }
 
+        // Registrar visita en Firebase
         async function registrarVisita() {
             const userId = generarIDUnico();
             const userDocRef = doc(db, "visitas", userId);
@@ -47,26 +50,33 @@
             }
         }
 
-        window.onload = () => {
-            registrarVisita();
-            setTimeout(() => {
-                window.location.href = "TU_ENLACE_DE_RESEÑAS_DE_GOOGLE";
-            }, 5000);
-        };
-
+        // Detectar idioma del usuario
         function detectarIdioma() {
             const idioma = navigator.language || navigator.userLanguage;
             const mensajes = {
-                "es": "Gracias por visitarnos y compartir tu #ExperienciaVillegas",
-                "en": "Thank you for visiting us and sharing your #VillegasExperience",
-                "fr": "Merci de nous rendre visite et de partager votre #ExpérienceVillegas"
+                es: "Gracias por visitarnos y compartir tu #ExperienciaVillegas",
+                en: "Thank you for visiting us and sharing your #VillegasExperience",
+                fr: "Merci de nous rendre visite et de partager votre #ExpérienceVillegas",
+                pt: "Obrigado por nos visitar e compartilhar sua #ExperienciaVillegas",
+                de: "Danke für Ihren Besuch und das Teilen Ihrer #VillegasErfahrung",
+                zh: "感谢您的光临并分享您的 #Villegas体验",
+                ko: "방문해 주셔서 감사합니다. #Villegas경험을 공유해 주세요",
+                ja: "ご来店いただきありがとうございます。#Villegas体験を共有してください",
+                ar: "شكراً لزيارتك ومشاركة تجربتك #تجربة_فيليغاس",
+                ru: "Спасибо за визит и за то, что поделились своим #VillegasОпыт",
+                uk: "Дякуємо за візит і за те, що поділилися своїм #VillegasДосвід"
             };
             return mensajes[idioma] || mensajes["es"];
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
+        // Ejecutar acciones cuando la página se carga
+        window.onload = () => {
             document.getElementById("mensaje").innerText = detectarIdioma();
-        });
+            registrarVisita();
+            setTimeout(() => {
+                window.location.href = "TU_ENLACE_DE_RESEÑAS_DE_GOOGLE";
+            }, 2000); // Redirección en 2 segundos
+        };
     </script>
 </head>
 <body>
