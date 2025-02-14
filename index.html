@@ -3,66 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracias por tu visita</title>
+    <title>Redirigiendo...</title>
+    <meta http-equiv="refresh" content="3;url=https://www.google.com/search?q=villegas+resto+rese%C3%B1as&sca_esv=54fcc75b4f72cd60&sxsrf=AHTn8zoi58JRl7ISnR8gLMau7_tgdHodaA%3A1739498780460&ei=HKWuZ5XdG_Hf1sQP5t-jsAQ&oq=villegas+resto&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnZpbGxlZ2FzIHJlc3RvKgIIADIHECMYsAMYJzIHECMYsAMYJzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATITEC4YgAQYsAMYQxjIAxiKBdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATITEC4YgAQYsAMYQxjIAxiKBdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAUjODFAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIGmAMAiAYBkAYUugYGCAEQARgIkgcBMaAHAA&sclient=gws-wiz-serp#lrd=0x95a3352a1c620e2f:0x2e8358edc79a7003,3,,,," />
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f8f8f8;
-        }
-        #mensaje {
-            font-size: 1.5em;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
             padding: 20px;
-            max-width: 80%;
         }
-        #spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #000;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-top: 20px;
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
         }
-        @media (max-width: 600px) {
-            #mensaje { font-size: 1.2em; }
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3;
         }
     </style>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        const firebaseConfig = {
-            apiKey: "TU_API_KEY",
-            authDomain: "TU_AUTH_DOMAIN",
-            projectId: "TU_PROJECT_ID",
-            storageBucket: "TU_STORAGE_BUCKET",
-            messagingSenderId: "TU_MESSAGING_SENDER_ID",
-            appId: "TU_APP_ID"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        function generarIDUnico() {
-            let id = localStorage.getItem("user_id");
-            if (!id) {
-                id = "user_" + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem("user_id", id);
-            }
-            return id;
-        }
-
-        async function registrarVisita() {
-            const userId = generarIDUnico();
-  
+    <script>
+        setTimeout(function() {
+            window.location.href = "https://www.google.com/search?q=villegas+resto+rese%C3%B1as&sca_esv=54fcc75b4f72cd60&sxsrf=AHTn8zoi58JRl7ISnR8gLMau7_tgdHodaA%3A1739498780460&ei=HKWuZ5XdG_Hf1sQP5t-jsAQ&oq=villegas+resto&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnZpbGxlZ2FzIHJlc3RvKgIIADIHECMYsAMYJzIHECMYsAMYJzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATITEC4YgAQYsAMYQxjIAxiKBdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBATITEC4YgAQYsAMYQxjIAxiKBdgBATIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAUjODFAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIGmAMAiAYBkAYUugYGCAEQARgIkgcBMaAHAA&sclient=gws-wiz-serp#lrd=0x95a3352a1c620e2f:0x2e8358edc79a7003,3,,,,";
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirigiendo...</h1>
+        <p>Si la redirección no ocurre automáticamente, haz clic en el botón de abajo.</p>
+        <a href="https://www.google.com/search?q=villegas+resto+rese%C3%B1as&sca_esv=54fcc75b4f72cd60&sxsrf=AHTn8zoi58JRl7ISnR8gLMau7_tgdHodaA%3A1739498780460&ei=HKWuZ5XdG_Hf1sQP5t-jsAQ&oq=villegas+resto&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnZpbGxlZ2FzIHJlc3RvKgIIADIHECMYsAMYJzIHECMYsAMYJzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBTIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAUjODFAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIGmAMAiAYBkAYUugYGCAEQARgIkgcBMaAHAA&sclient=gws-wiz-serp#lrd=0x95a3352a1c620e2f:0x2e8358edc79a7003,3,,,," target="_blank">Ir a las reseñas</a>
+    </div>
+</body>
+</html>
